@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MICHAEL JOSIL Scientific Calculator</title>
+  <style>
+    h1{
+        text-align: center;
+        color: blue;
+    }
+    
+    
+    body {
+            font-family: Arial, sans-serif;
+            background-image: url('back.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    body {
+      background-color: #11cce8;
+      font-family: Arial, sans-serif;
+    }
+
+    .calculator {
+      width: 300px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 20px;
+      border: 1px solid #e719ad;
+      border-radius: 5px;
+      background-color: #847be6;
+      box-shadow: 0 2px 5px rgba(116, 6, 17, 0.1);
+    }
+
+    .keypad button {
+      width: 50px;
+      height: 50px;
+      font-size: 18px;
+      margin: 5px;
+      background-color: #5d045d;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .keypad button:hover {
+      background-color: #e4c5c5;
+    }
+
+    .keypad button:active {
+      background-color: #150505;
+    }
+
+    #display {
+      width: 100%;
+      height: 40px;
+      margin-bottom: 10px;
+      font-size: 20px;
+      text-align: right;
+      border: 1px solid #aee73c;
+      border-radius: 3px;
+      padding: 5px;
+    }
+    @keyframes example {
+  from {background-color: red;}
+  to {background-color: yellow;}
+}
+
+
+div {
+  
+  background-color: red;
+  animation-name: example;
+  animation-duration: 30s;
+}
+  </style>
+</head>
+<body>
+    <h1>
+        MICHAEL JOSIL CALCULATOR</h1>
+  <div class="calculator">
+    <input type="text" id="display" readonly>
+    <div class="keypad">
+      <button onclick="clearDisplay()">C</button>
+      <button onclick="deleteCharacter()">&larr;</button>
+      <button onclick="appendCharacter('/')">/</button>
+      <button onclick="appendCharacter('7')">7</button>
+      <button onclick="appendCharacter('8')">8</button>
+      <button onclick="appendCharacter('9')">9</button>
+      <button onclick="appendCharacter('*')">*</button>
+      <button onclick="appendCharacter('4')">4</button>
+      <button onclick="appendCharacter('5')">5</button>
+      <button onclick="appendCharacter('6')">6</button>
+      <button onclick="appendCharacter('-')">-</button>
+      <button onclick="appendCharacter('1')">1</button>
+      <button onclick="appendCharacter('2')">2</button>
+      <button onclick="appendCharacter('3')">3</button>
+      <button onclick="appendCharacter('+')">+</button>
+      <button onclick="appendCharacter('0')">0</button>
+      <button onclick="appendCharacter('.')">.</button>
+      <button onclick="calculateResult()">=</button>
+      <button onclick="appendCharacter('(')">(</button>
+      <button onclick="appendCharacter(')')">)</button>
+      <button onclick="appendCharacter('Math.sqrt(')">√</button>
+      <button onclick="appendCharacter('Math.sin(')">sin</button>
+      <button onclick="appendCharacter('Math.cos(')">cos</button>
+      <button onclick="appendCharacter('Math.tan(')">tan</button>
+      <button onclick="appendCharacter('Math.log10(')">log</button>
+      <button onclick="appendCharacter('Math.pow(')">x^y</button>
+    </div>
+  </div>
+
+  <script>
+    function clearDisplay() {
+      document.getElementById('display').value = '';
+    }
+
+    function deleteCharacter() {
+      var display = document.getElementById('display');
+      display.value = display.value.slice(0, -1);
+    }
+
+    function appendCharacter(char) {
+      document.getElementById('display').value += char;
+    }
+
+    function calculateResult() {
+      var display = document.getElementById('display');
+      var result;
+
+      try {
+        result = eval(display.value);
+        display.value = result;
+      } catch (error) {
+        display.value = 'Error';
+      }
+    }
+  </script>
+</body>
+</html>
